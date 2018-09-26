@@ -1,0 +1,9 @@
+Client
+npm start
+----------------
+Server
+cd src/model
+node index.js
+----------------
+DB
+json-server --watch db.json --port 3004

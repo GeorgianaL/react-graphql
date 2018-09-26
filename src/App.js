@@ -3,7 +3,10 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 // components
-import Users from './components/Users.js';
+import Products from './components/products/Products.js';
+import FiltersList from './components/filters/FiltersList';
+
+import './index.css';
 
 const client = new ApolloClient({
     uri: 'http://localhost:4000/'
@@ -13,9 +16,9 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <div id="main">
-          <h1>React-GraphQL Project</h1>
-          <Users />
+        <div className="main">
+          <FiltersList />
+          <Products />
         </div>
       </ApolloProvider>
     );

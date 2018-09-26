@@ -1,0 +1,298 @@
+{
+  "brands": [
+    {
+      "id": 1,
+      "type": "Volkswagen"
+    },
+    {
+      "id": 2,
+      "type": "Opel"
+    },
+    {
+      "id": 3,
+      "type": "Audi"
+    }
+  ],
+  "models": [
+    {
+      "id": 11,
+      "type": "Bora"
+    },
+    {
+      "id": 12,
+      "type": "Golf"
+    },
+    {
+      "id": 13,
+      "type": "Beetle"
+    },
+    {
+      "id": 14,
+      "type": "Passat"
+    },
+    {
+      "id": 15,
+      "type": "Eos"
+    },
+    {
+      "id": 16,
+      "type": "Tuareg"
+    },
+    {
+      "id": 17,
+      "type": "Polo"
+    },
+    {
+      "id": 18,
+      "type": "Touran"
+    },
+    {
+      "id": 19,
+      "type": "Tiguan"
+    },
+    {
+      "id": 21,
+      "type": "Astra"
+    },
+    {
+      "id": 22,
+      "type": "Corsa"
+    },
+    {
+      "id": 23,
+      "type": "Isignia"
+    },
+    {
+      "id": 24,
+      "type": "Zafira"
+    },
+    {
+      "id": 25,
+      "type": "Vectra"
+    },
+    {
+      "id": 31,
+      "type": "A1"
+    },
+    {
+      "id": 32,
+      "type": "A2"
+    },
+    {
+      "id": 33,
+      "type": "A3"
+    },
+    {
+      "id": 34,
+      "type": "A4"
+    },
+    {
+      "id": 35,
+      "type": "A5"
+    },
+    {
+      "id": 36,
+      "type": "A6"
+    },
+    {
+      "id": 37,
+      "type": "A7"
+    },
+    {
+      "id": 38,
+      "type": "A8"
+    },
+    {
+      "id": 39,
+      "type": "Q5"
+    },
+    {
+      "id": 40,
+      "type": "Q7"
+    },
+    {
+      "id": 41,
+      "type": "TT"
+    }
+  ],
+  "fuels": [
+    { "id": 40, "type": "Benzine" },
+    { "id": 41, "type": "Diesel" }
+  ],
+  "engines": [
+    { "id": 50, "type": 1200 },
+    { "id": 51, "type": 1400 },
+    { "id": 52, "type": 1600 },
+    { "id": 53, "type": 2000 },
+    { "id": 54, "type": 2500 }
+  ],
+  "gearboxes": [
+    { "id": 60, "type": "Manual" },
+    { "id": 61, "type": "Automat" }
+  ],
+  "colors": [
+    { "id": 70, "type": "Black" },
+    { "id": 71, "type": "White" },
+    { "id": 72, "type": "Grey" },
+    { "id": 73, "type": "Red" },
+    { "id": 74, "type": "Blue" },
+    { "id": 75, "type": "Green" },
+    { "id": 76, "type": "Yellow" }
+  ],
+  "products": [
+    {
+      "id": 100,
+      "brand": 1,
+      "model": 11,
+      "fuel": 40,
+      "engine": 52,
+      "gearbox": 60,
+      "color": 70,
+      "year": 2009,
+      "km": 210000,
+      "price": 4000,
+      "thumbnailUrl": "https://via.placeholder.com/150/56acb2"
+    },
+    {
+      "id": 101,
+      "brand": 1,
+      "model": 12,
+      "fuel": 41,
+      "engine": 51,
+      "gearbox": 60,
+      "color": 70,
+      "year": 2012,
+      "km": 170000,
+      "price": 6500,
+      "thumbnailUrl": "https://via.placeholder.com/150/61a65"
+    },
+    {
+      "id": 102,
+      "brand": 1,
+      "model": 12,
+      "fuel": 41,
+      "engine": 51,
+      "gearbox": 60,
+      "color": 71,
+      "year": 2010,
+      "km": 196000,
+      "price": 5900,
+      "thumbnailUrl": "https://via.placeholder.com/150/66b7d2"
+    },
+    {
+      "id": 103,
+      "brand": 1,
+      "model": 14,
+      "fuel": 41,
+      "engine": 53,
+      "gearbox": 61,
+      "color": 74,
+      "year": 2013,
+      "km": 194500,
+      "price": 9300,
+      "thumbnailUrl": "https://via.placeholder.com/150/810b14"
+    },
+    {
+      "id": 104,
+      "brand": 3,
+      "model": 34,
+      "fuel": 41,
+      "engine": 54,
+      "gearbox": 61,
+      "color": 74,
+      "year": 2009,
+      "km": 230000,
+      "price": 9800,
+      "thumbnailUrl": "https://via.placeholder.com/150/1ee8a4"
+    },
+    {
+      "id": 105,
+      "brand": 3,
+      "model": 36,
+      "fuel": 40,
+      "engine": 54,
+      "gearbox": 60,
+      "color": 70,
+      "year": 2010,
+      "km": 236000,
+      "price": 9300,
+      "thumbnailUrl": "https://via.placeholder.com/150/54176f"
+    },
+    {
+      "id": 106,
+      "brand": 3,
+      "model": 34,
+      "fuel": 41,
+      "engine": 54,
+      "gearbox": 60,
+      "color": 70,
+      "year": 2007,
+      "km": 190000,
+      "price": 6500,
+      "thumbnailUrl": "https://via.placeholder.com/150/56acb2"
+    },
+    {
+      "id": 107,
+      "brand": 2,
+      "model": 21,
+      "fuel": 41,
+      "engine": 52,
+      "gearbox": 60,
+      "color": 70,
+      "year": 2011,
+      "km": 170000,
+      "price": 5700,
+      "thumbnailUrl": "https://via.placeholder.com/150/b0f7cc"
+    },
+    {
+      "id": 108,
+      "brand": 2,
+      "model": 21,
+      "fuel": 41,
+      "engine": 52,
+      "gearbox": 60,
+      "color": 73,
+      "year": 2011,
+      "km": 170000,
+      "price": 7600,
+      "thumbnailUrl": "https://via.placeholder.com/150/f66b97"
+    },
+    {
+      "id": 109,
+      "brand": 2,
+      "model": 23,
+      "fuel": 41,
+      "engine": 53,
+      "gearbox": 61,
+      "color": 72,
+      "year": 2015,
+      "km": 118000,
+      "price": 9490,
+      "thumbnailUrl": "https://via.placeholder.com/150/d32776"
+    },
+    {
+      "id": 110,
+      "brand": 2,
+      "model": 23,
+      "fuel": 41,
+      "engine": 53,
+      "gearbox": 61,
+      "color": 72,
+      "year": 2011,
+      "km": 192000,
+      "price": 7700,
+      "thumbnailUrl": "https://via.placeholder.com/150/45601a"
+    }
+  ],
+  "filters": [
+    { "id": 80, "type": "brand"},
+    { "id": 81, "type": "model"},
+    { "id": 82, "type": "fuel"},
+    { "id": 83, "type": "engine"},
+    { "id": 84, "type": "gearbox"},
+    { "id": 85, "type": "color"},
+    { "id": 86, "type": "year"},
+    { "id": 87, "type": "km"},
+    { "id": 88, "type": "price"}
+  ]
+}
