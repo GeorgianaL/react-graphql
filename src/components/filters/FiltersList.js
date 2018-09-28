@@ -12,9 +12,28 @@ import {
   getColorsQuery,
 } from './queries';
 
+import { isObject } from 'lodash';
+
+import { allProductProps } from '../../lib/productProps';
 import './filters.css';
 
 class FiltersList extends Component {
+  constructor(...args) {
+    super(...args);
+
+    this.selectOption = this.selectOption.bind(this);
+    this.deselectOption = this.deselectOption.bind(this);
+  }
+
+  componentDidMount() {
+    const nextState = allProductProps.reduce((acc, item) => ({
+      ...acc,
+      [item]: '',
+    }), {});
+
+    this.setState(nextState);
+  }
+
   getFilterOptions(filterId) {
     const {
       brands,
@@ -29,6 +48,9 @@ class FiltersList extends Component {
       case 'brand':
         return brands.brands;
       case 'model':
+        if (isObject(this.state.brand)) {
+          return models.models.filter(model => model.brandId === this.state.brand.id);
+        }
         return models.models;
       case 'fuel':
         return fuelTypes.fuelTypes;
@@ -41,7 +63,33 @@ class FiltersList extends Component {
       default:
         return [];
     }
-  };
+  }
+
+  selectOption(option) {
+    this.setState({
+      [option.__typename]: {
+        id: option.id,
+        type: option.type
+      },
+    }, () => {
+      const filters = Object.keys(this.state).reduce((acc, item) => {
+        if (isObject(this.state[item])) {
+          return {
+            ...acc,
+            [item]: this.state[item].id,
+          };
+        }
+        return acc;
+      }, {});
+      this.props.updateFilters(filters);
+    });
+  }
+
+  deselectOption(option) {
+    this.setState({
+      [option]: "",
+    });
+  }
 
   render() {
     const { filters } = this.props;
@@ -59,7 +107,13 @@ class FiltersList extends Component {
                     <Filter
                       name={filter.type}
                       options={this.getFilterOptions(filter.type)}
+                      onSelectOption={(e) => this.selectOption(e)}
+                      optionSelected={this.state[filter.type]}
                     />
+                    {
+                      isObject(this.state[filter.type]) &&
+                        <span className="closeBox" onClick={() => this.deselectOption(filter.type)}>x</span>
+                    }
                   </li>
                 );
               })

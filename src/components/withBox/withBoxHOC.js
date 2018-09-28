@@ -1,7 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// import { noAncestry } from 'lib';
+const noAncestry = (child, parent) => {
+  if (child !== undefined) {
+    let node = child.target.parentNode;
+    while (node !== null) {
+        if (node === parent) {
+            return true;
+        }
+        node = node.parentNode;
+    }
+    return true;
+  }
+  return false;
+}
 
 const WithBox = Component => class WithBoxHOC extends React.Component {
   constructor(...args) {
@@ -16,7 +28,7 @@ const WithBox = Component => class WithBoxHOC extends React.Component {
 
     this.openBox = this.openBox.bind(this);
     this.closeBox = this.closeBox.bind(this);
-    // this.autoclose = this.autoclose.bind(this);
+    this.autoclose = this.autoclose.bind(this);
   }
 
   componentWillUnmount() {
@@ -24,6 +36,7 @@ const WithBox = Component => class WithBoxHOC extends React.Component {
   }
 
   openBox() {
+    this.autoclose();
     this.setState({ 'boxIsOpen': true }, this.attachEvent);
   }
 
@@ -31,11 +44,11 @@ const WithBox = Component => class WithBoxHOC extends React.Component {
     this.setState({ 'boxIsOpen': false }, this.detachEvent);
   }
 
-  // autoclose(ev) {
-  //   if (noAncestry(ev.target, ReactDOM.findDOMNode(this.root))) {
-  //     this.closeBox();
-  //   }
-  // }
+  autoclose(ev) {
+    if (noAncestry(ev, ReactDOM.findDOMNode(this.root))) {
+      this.closeBox();
+    }
+  }
 
   attachEvent() {
     document.addEventListener('click', this.autoclose);

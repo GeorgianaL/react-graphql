@@ -41,6 +41,7 @@ const typeDefs = `
   }
   type model {
     id: Int
+    brandId: Int
     type: String
   }
   type fuel {

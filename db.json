@@ -15,102 +15,127 @@
   ],
   "models": [
     {
+      "brandId": 1,
       "id": 11,
       "type": "Bora"
     },
     {
+      "brandId": 1,
       "id": 12,
       "type": "Golf"
     },
     {
+      "brandId": 1,
       "id": 13,
       "type": "Beetle"
     },
     {
+      "brandId": 1,
       "id": 14,
       "type": "Passat"
     },
     {
+      "brandId": 1,
       "id": 15,
       "type": "Eos"
     },
     {
+      "brandId": 1,
       "id": 16,
       "type": "Tuareg"
     },
     {
+      "brandId": 1,
       "id": 17,
       "type": "Polo"
     },
     {
+      "brandId": 1,
       "id": 18,
       "type": "Touran"
     },
     {
+      "brandId": 1,
       "id": 19,
       "type": "Tiguan"
     },
     {
+      "brandId": 2,
       "id": 21,
       "type": "Astra"
     },
     {
+      "brandId": 2,
       "id": 22,
       "type": "Corsa"
     },
     {
+      "brandId": 2,
       "id": 23,
       "type": "Isignia"
     },
     {
+      "brandId": 2,
       "id": 24,
       "type": "Zafira"
     },
     {
+      "brandId": 2,
       "id": 25,
       "type": "Vectra"
     },
     {
+      "brandId": 3,
       "id": 31,
       "type": "A1"
     },
     {
+      "brandId": 3,
       "id": 32,
       "type": "A2"
     },
     {
+      "brandId": 3,
       "id": 33,
       "type": "A3"
     },
     {
+      "brandId": 3,
       "id": 34,
       "type": "A4"
     },
     {
+      "brandId": 3,
       "id": 35,
       "type": "A5"
     },
     {
+      "brandId": 3,
       "id": 36,
       "type": "A6"
     },
     {
+      "brandId": 3,
       "id": 37,
       "type": "A7"
     },
     {
+      "brandId": 3,
       "id": 38,
       "type": "A8"
     },
     {
+      "brandId": 3,
       "id": 39,
       "type": "Q5"
     },
     {
+      "brandId": 3,
       "id": 40,
       "type": "Q7"
     },
     {
+      "brandId": 3,
       "id": 41,
       "type": "TT"
     }

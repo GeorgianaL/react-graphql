@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 
 import { getPropsName } from './queries';
-
-const allProductProps = ['brand', 'model', 'engine', 'fuels', 'gearbox', 'color', 'year', 'km', 'price'];
-const propsById = ['brand', 'model', 'engine', 'fuels', 'gearbox', 'color'];
+import { allProductProps, propsById } from '../../lib/productProps';
 
 class Product extends Component {
   getPropValue(prop) {

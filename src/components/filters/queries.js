@@ -22,6 +22,7 @@ export const getModelsQuery = gql`
   {
     models {
       id
+      brandId
       type
     }
   }

@@ -7,12 +7,31 @@ import Product from './Product.js';
 import './product.css';
 
 class Products extends Component {
+  filterProducts(products) {
+    const filters = this.props.filters;
+
+    const availableProducts = products.filter((product) => {
+      const filtersName = Object.keys(filters);
+
+      let ok = true;
+      filtersName.forEach((filter) => {
+        if (product[filter] !== filters[filter]) {
+          ok = false;
+        }
+      });
+      return ok;
+    });
+
+    return availableProducts;
+  }
+
   displayProducts() {
       const { data } = this.props;
       if (data.loading) {
         return (<h3>Loading Products...</h3>)
       } else {
-        return data.products.map((product) => {
+        const availableProducts = this.filterProducts(data.products);
+        return availableProducts.map((product) => {
           return (
             <li key={product.id}  className="product">
               <Product {...product} />
