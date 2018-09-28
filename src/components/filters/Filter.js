@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import WithBox from '../withBox/withBoxHOC';
 
 import { isObject } from 'lodash';
+import { capitalize } from '../../lib/capitalize';
 
-const capitalize = text => text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 
 class Filter extends Component {
   render() {

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 
 import { getPropsName } from './queries';
-import { allProductProps, propsById } from '../../lib/productProps';
+import { allProductProps, propsById, productDetails } from '../../lib/productProps';
+import { capitalize } from '../../lib/capitalize';
 
 class Product extends Component {
   getPropValue(prop) {
@@ -35,19 +36,35 @@ class Product extends Component {
           <img src={this.props.thumbnailUrl} alt="product" className="thumbnailUrl" />
         </div>
         <div className="product-description">
-          <ul className="product-details">
-            {
-              allProductProps.map((property) => {
-                if (propsById.includes(property)) {
-                  return (
-                    <li key={`${property}-value`}>{property}: {this.getPropValue(property)}</li>
-                  );
-                } else {
-                  return <li key={`${property}-value`}>{property}: {this.props[property]}</li>
+          <div className="product-details">
+            <div className="product-header">
+              <div className="product-header--title">
+                {
+                  productDetails.title.map((detail) => (
+                    <p>{this.getPropValue(detail)}</p>
+                  ))
                 }
-              })
-            }
-          </ul>
+              </div>
+              {
+                productDetails.price.map((detail) => (
+                  <div className="product-header--price"><p>{this.props[detail]} €</p></div>
+                ))
+              }
+            </div>
+            <div className="product-body">
+              {
+                productDetails.details.map((detail) => {
+                  if (propsById.includes(detail)) {
+                    return (
+                      <span key={`${detail}-value`}>{capitalize(detail)}: {this.getPropValue(detail)}</span>
+                    );
+                  } else {
+                    return <span key={`${detail}-value`}>{capitalize(detail)}: {this.props[detail]}</span>
+                  }
+                })
+              }
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -68,3 +85,15 @@ export default graphql(getPropsName, {
       }
     }
 })(Product);
+
+// {
+//   allProductProps.map((property) => {
+//     if (propsById.includes(property)) {
+//       return (
+//         <span key={`${property}-value`}>{capitalize(property)}: {this.getPropValue(property)}</span>
+//       );
+//     } else {
+//       return <span key={`${property}-value`}>{capitalize(property)}: {this.props[property]}</span>
+//     }
+//   })
+// }
