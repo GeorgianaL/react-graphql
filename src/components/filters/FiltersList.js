@@ -65,6 +65,19 @@ class FiltersList extends Component {
     }
   }
 
+  setNewFilters() {
+    const filters = Object.keys(this.state).reduce((acc, item) => {
+      if (isObject(this.state[item])) {
+        return {
+          ...acc,
+          [item]: this.state[item].id,
+        };
+      }
+      return acc;
+    }, {});
+    this.props.updateFilters(filters);
+  }
+
   selectOption(option) {
     this.setState({
       [option.__typename]: {
@@ -72,22 +85,15 @@ class FiltersList extends Component {
         type: option.type
       },
     }, () => {
-      const filters = Object.keys(this.state).reduce((acc, item) => {
-        if (isObject(this.state[item])) {
-          return {
-            ...acc,
-            [item]: this.state[item].id,
-          };
-        }
-        return acc;
-      }, {});
-      this.props.updateFilters(filters);
+      this.setNewFilters();
     });
   }
 
   deselectOption(option) {
     this.setState({
       [option]: "",
+    }, () => {
+      this.setNewFilters();
     });
   }
 
