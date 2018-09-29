@@ -15,7 +15,7 @@ import {
 import { isObject } from 'lodash';
 
 import { allProductProps } from '../../lib/productProps';
-import './filters.css';
+import './filters.scss';
 
 class FiltersList extends Component {
   constructor(...args) {
