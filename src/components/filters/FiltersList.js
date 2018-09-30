@@ -104,8 +104,8 @@ class FiltersList extends Component {
     } else {
       return (
         <div className="filters">
-          <h4 className="filters-title">Advanced search</h4>
-          <ul className="filters-list">
+          <h4 className="filters__title">Advanced search</h4>
+          <ul className="filters__list">
             {
               filters.filters.map((filter) => {
                 return (

@@ -3,6 +3,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 // components
+import Header from './components/header/Header.js';
 import Products from './components/products/Products.js';
 import FiltersList from './components/filters/FiltersList';
 
@@ -33,6 +34,7 @@ class App extends Component {
     return (
       <ApolloProvider client={client}>
         <div className="main">
+          <Header />
           <FiltersList
             updateFilters={this.updateFilters}
           />

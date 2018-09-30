@@ -31,14 +31,14 @@ class Product extends Component {
 
   render() {
     return (
-      <div className="product-content">
-        <div className="product-photo">
-          <img src={this.props.thumbnailUrl} alt="product" className="thumbnailUrl" />
+      <div className="product__content">
+        <div className="product__photo">
+          <img src={this.props.thumbnailUrl} alt="product" className="product__photo--thumbnailUrl" />
         </div>
-        <div className="product-description">
-          <div className="product-details">
-            <div className="product-header">
-              <div className="product-header--title">
+        <div className="product__description">
+          <div className="product__details">
+            <div className="product__header">
+              <div className="product__header--title">
                 {
                   productDetails.title.map((detail) => (
                     <p>{this.getPropValue(detail)}</p>
@@ -47,11 +47,11 @@ class Product extends Component {
               </div>
               {
                 productDetails.price.map((detail) => (
-                  <div className="product-header--price"><p>{this.props[detail]} €</p></div>
+                  <div className="product__header--price"><p>{this.props[detail]} €</p></div>
                 ))
               }
             </div>
-            <div className="product-body">
+            <div className="product__body">
               {
                 productDetails.details.map((detail) => {
                   if (propsById.includes(detail)) {

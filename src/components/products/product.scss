@@ -1,0 +1,67 @@
+@import '../../skins/index.scss';
+
+.product {
+
+  padding: 0px 10px;
+
+  @include element('list') {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+  }
+
+  @include element('content') {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: row;
+  }
+
+  @include element('photo') {
+    padding: 20px 20px;
+    @include modifier('thumbnailUrl') {
+      box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
+    }
+  }
+
+  @include element('header') {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @include modifier('title') {
+      display: flex;
+      flex-direction: row;
+      padding: 0px 10px;
+      font-size: 1.2em;
+    }
+    @include modifier('price') {
+      right: 10px;
+      font-size: 1.8em;
+    }
+  }
+
+  @include element('details') {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 10px;
+  }
+
+  @include element('detail') {
+    padding: 5px 10px;
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+  .product {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .product {
+    width: 100%;
+  }
+}

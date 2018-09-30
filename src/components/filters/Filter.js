@@ -11,12 +11,12 @@ class Filter extends Component {
     const optionSelected = isObject(this.props.optionSelected) ? this.props.optionSelected.type : "";
 
     return (
-      <div className="filter-input">
+      <div className="filter__input">
         <div
           onClick={this.props.boxIsOpen ? this.props.closeBox : this.props.openBox}
-          className={optionSelected === "" ? "input empty" : "input selection"}
+          className={optionSelected === "" ? "filter__input--empty" : "filter__input--selection"}
         >
-          <span className="value">{optionSelected === "" ? capitalize(name) : optionSelected}</span>
+          <span className="filter__input--value">{optionSelected === "" ? capitalize(name) : optionSelected}</span>
         </div>
         {
           this.props.boxIsOpen && (
@@ -25,7 +25,7 @@ class Filter extends Component {
                 options.map((option) => (
                   <span
                     key={option.id}
-                    className="option-item"
+                    className="options__item"
                     onClick={() => this.props.onSelectOption(option)}
                   >
                     {option.type}

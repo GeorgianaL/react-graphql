@@ -1,0 +1,21 @@
+$colors: (
+  'black': #000000,
+  'cod-gray': #242a33,
+  'boulder': #797979,
+  'gray-chateau': #a7aaad,
+  'dusty-gray': #9b9b9b,
+  'white': #ffffff,
+  'alabaster': #f8f7f7,
+  'wild-sand': #F4F3F3,
+  'silver': #CCCCCC,
+  'grey': #9E9E9E,
+  'pacific-blue': #00acc1,
+  'claret': #741B47,
+);
+
+@function setColor($key) {
+  @if not map-has-key($colors, $key) {
+    @warn "Key `#{$key}` not found in $colors map.";
+  }
+  @return map-get($colors, $key);
+}

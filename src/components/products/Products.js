@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo';
 import { getProductsQuery } from './queries';
 
 import Product from './Product.js';
-import './product.css';
+import './product.scss';
 
 class Products extends Component {
   filterProducts(products) {
@@ -44,7 +44,7 @@ class Products extends Component {
   render() {
     return (
       <div>
-        <ul className="products-list">
+        <ul className="product__list">
           { this.displayProducts() }
         </ul>
       </div>
