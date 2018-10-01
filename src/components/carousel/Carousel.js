@@ -54,6 +54,7 @@ class Carousel extends Component {
           clickFunction={ this.previousSlide }
           glyph="&#9664;"
         />
+        <h1 className="carousel__title">Find your car</h1>
         <ImageSlide url={ imgUrls[this.state.currentImageIndex] } />
         <Arrow
           direction="right"

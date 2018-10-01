@@ -33,8 +33,8 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
+        <Header />
         <div className="main">
-          <Header />
           <FiltersList
             updateFilters={this.updateFilters}
           />

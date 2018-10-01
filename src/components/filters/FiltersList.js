@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { graphql, compose } from 'react-apollo';
 
+import menuIcon from '../../../public/menu.png';
+import cancelIcon from '../../../public/cancel.svg';
+
 import Filter from './Filter';
 import {
   getFiltersQuery,
@@ -21,8 +24,10 @@ class FiltersList extends Component {
   constructor(...args) {
     super(...args);
 
+    this.filtersNode = null;
     this.selectOption = this.selectOption.bind(this);
     this.deselectOption = this.deselectOption.bind(this);
+    this.showFilters = this.showFilters.bind(this);
   }
 
   componentDidMount() {
@@ -97,6 +102,14 @@ class FiltersList extends Component {
     });
   }
 
+  showFilters() {
+    if (this.filtersNode.style.display === 'none' || this.filtersNode.style.display === '') {
+      this.filtersNode.style.display = 'block';
+    } else {
+      this.filtersNode.style.display = 'none';
+    }
+  }
+
   render() {
     const { filters } = this.props;
     if (filters.loading) {
@@ -104,12 +117,15 @@ class FiltersList extends Component {
     } else {
       return (
         <div className="filters">
-          <h4 className="filters__title">Advanced search</h4>
-          <ul className="filters__list">
+          <div className="filters__title" onClick={this.showFilters}>
+            <img src={menuIcon} />
+            <p>Filters</p>
+          </div>
+          <ul className="filters__list" ref={node => this.filtersNode = node}>
             {
               filters.filters.map((filter) => {
                 return (
-                  <li key={filter.id} className="filter">
+                  <li key={filter.id} className={isObject(this.state[filter.type]) ? "filter filter--selected" : "filter"}>
                     <Filter
                       name={filter.type}
                       options={this.getFilterOptions(filter.type)}
@@ -118,7 +134,7 @@ class FiltersList extends Component {
                     />
                     {
                       isObject(this.state[filter.type]) &&
-                        <span className="closeBox" onClick={() => this.deselectOption(filter.type)}>x</span>
+                        <img src={cancelIcon} className="filter__cancel" onClick={() => this.deselectOption(filter.type)} />
                     }
                   </li>
                 );

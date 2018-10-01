@@ -4,6 +4,21 @@
 	height:100%;
 	margin: 0;
 	width: 100%;
+	position: relative;
+
+	@include element('title') {
+		position: absolute;;
+		padding: 10px;
+		top: 20%;
+		left: 2%;
+
+		color: white;
+		font-size: 2rem;
+		text-transform: uppercase;
+
+		border-top: 10px solid rgba(167, 170, 173, 0.23);
+		border-bottom: 10px solid rgba(167, 170, 173, 0.23);
+	}
 }
 
 .image-slide {
@@ -13,11 +28,11 @@
 }
 
 .slide-arrow {
-	color: setColor('claret');
+	color: rgba(167, 170, 173, 0.23);
 	cursor: pointer;
 	font-size: 2rem;
-	position: fixed;
-	top: 60%;
+	position: absolute;
+	top: 400px;
 }
 
 .slide-arrow.right {

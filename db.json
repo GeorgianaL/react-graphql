@@ -176,7 +176,7 @@
       "year": 2009,
       "km": 210000,
       "price": 4000,
-      "thumbnailUrl": "https://via.placeholder.com/150/56acb2"
+      "thumbnailUrl": "https://via.placeholder.com/350x150/56acb2"
     },
     {
       "id": 101,
@@ -189,7 +189,7 @@
       "year": 2012,
       "km": 170000,
       "price": 6500,
-      "thumbnailUrl": "https://via.placeholder.com/150/61a65"
+      "thumbnailUrl": "https://via.placeholder.com/350x150/61a65"
     },
     {
       "id": 102,
@@ -202,7 +202,7 @@
       "year": 2010,
       "km": 196000,
       "price": 5900,
-      "thumbnailUrl": "https://via.placeholder.com/150/66b7d2"
+      "thumbnailUrl": "https://via.placeholder.com/350x150/66b7d2"
     },
     {
       "id": 103,
@@ -215,7 +215,7 @@
       "year": 2013,
       "km": 194500,
       "price": 9300,
-      "thumbnailUrl": "https://via.placeholder.com/150/810b14"
+      "thumbnailUrl": "https://via.placeholder.com/350x150/810b14"
     },
     {
       "id": 104,
@@ -228,7 +228,7 @@
       "year": 2009,
       "km": 230000,
       "price": 9800,
-      "thumbnailUrl": "https://via.placeholder.com/150/1ee8a4"
+      "thumbnailUrl": "https://via.placeholder.com/350x150/1ee8a4"
     },
     {
       "id": 105,
@@ -241,7 +241,7 @@
       "year": 2010,
       "km": 236000,
       "price": 9300,
-      "thumbnailUrl": "https://via.placeholder.com/150/54176f"
+      "thumbnailUrl": "https://via.placeholder.com/350x150/54176f"
     },
     {
       "id": 106,
@@ -254,7 +254,7 @@
       "year": 2007,
       "km": 190000,
       "price": 6500,
-      "thumbnailUrl": "https://via.placeholder.com/150/56acb2"
+      "thumbnailUrl": "https://via.placeholder.com/350x150/56acb2"
     },
     {
       "id": 107,
@@ -267,7 +267,7 @@
       "year": 2011,
       "km": 170000,
       "price": 5700,
-      "thumbnailUrl": "https://via.placeholder.com/150/b0f7cc"
+      "thumbnailUrl": "https://via.placeholder.com/350x150/b0f7cc"
     },
     {
       "id": 108,
@@ -280,7 +280,7 @@
       "year": 2011,
       "km": 170000,
       "price": 7600,
-      "thumbnailUrl": "https://via.placeholder.com/150/f66b97"
+      "thumbnailUrl": "https://via.placeholder.com/350x150/f66b97"
     },
     {
       "id": 109,
@@ -293,7 +293,7 @@
       "year": 2015,
       "km": 118000,
       "price": 9490,
-      "thumbnailUrl": "https://via.placeholder.com/150/d32776"
+      "thumbnailUrl": "https://via.placeholder.com/350x150/d32776"
     },
     {
       "id": 110,
@@ -306,7 +306,7 @@
       "year": 2011,
       "km": 192000,
       "price": 7700,
-      "thumbnailUrl": "https://via.placeholder.com/150/45601a"
+      "thumbnailUrl": "https://via.placeholder.com/350x150/45601a"
     }
   ],
   "filters": [
