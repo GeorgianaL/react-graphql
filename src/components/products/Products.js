@@ -4,6 +4,7 @@ import { graphql } from 'react-apollo';
 import { getProductsQuery } from './queries';
 
 import Product from './Product.js';
+import { variableProps } from '../../lib/productProps';
 import './product.scss';
 
 class Products extends Component {
@@ -15,13 +16,19 @@ class Products extends Component {
 
       let ok = true;
       filtersName.forEach((filter) => {
-        if (product[filter] !== filters[filter]) {
-          ok = false;
+        if (variableProps.includes(filter)) {
+          if (product[filter] > filters[filter]) {
+            ok = false;
+          }
+        } else {
+          if (product[filter] !== filters[filter]) {
+            ok = false;
+          }
         }
       });
       return ok;
     });
-
+    console.log(availableProducts);
     return availableProducts;
   }
 

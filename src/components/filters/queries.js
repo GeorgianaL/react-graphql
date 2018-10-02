@@ -63,3 +63,30 @@ export const getColorsQuery = gql`
     }
   }
 `;
+
+export const getPricesQuery = gql`
+  {
+    products {
+      id
+      price
+    }
+  }
+`;
+
+export const getKmQuery = gql`
+  {
+    products {
+      id
+      km
+    }
+  }
+`;
+
+export const getYearQuery = gql`
+  {
+    products {
+      id
+      year
+    }
+  }
+`;

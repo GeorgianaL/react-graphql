@@ -2,6 +2,8 @@ export const allProductProps = ['brand', 'model', 'engine', 'fuels', 'gearbox', 
 
 export const propsById = ['brand', 'model', 'engine', 'fuels', 'gearbox', 'color'];
 
+export const variableProps = ['price', 'km', 'year'];
+
 export const productDetails = {
   title: ['brand', 'model'],
   price: ['price'],

@@ -13,11 +13,15 @@ import {
   getEngineTypesQuery,
   getGearboxesQuery,
   getColorsQuery,
+  getPricesQuery,
+  getKmQuery,
+  getYearQuery,
 } from './queries';
 
 import { isObject } from 'lodash';
 
-import { allProductProps } from '../../lib/productProps';
+import { allProductProps, variableProps } from '../../lib/productProps';
+import { getThresholds, mapIDs } from '../../lib/utils';
 import './filters.scss';
 
 class FiltersList extends Component {
@@ -47,6 +51,9 @@ class FiltersList extends Component {
       engineTypes,
       gearboxes,
       colors,
+      prices,
+      km,
+      year,
     } = this.props;
 
     switch (filterId) {
@@ -65,6 +72,15 @@ class FiltersList extends Component {
         return gearboxes.gearboxes;
       case 'color':
         return colors.colors;
+      case 'price':
+        const priceValues = getThresholds(prices.products.map(product => product.price));
+        return mapIDs(priceValues, 'price');
+      case 'km':
+        const kmValues = getThresholds(km.products.map(product => product.km));
+        return mapIDs(kmValues, 'km');
+      case 'year':
+        const yearValues = getThresholds(year.products.map(product => product.year));
+        return mapIDs(yearValues, 'year');
       default:
         return [];
     }
@@ -73,9 +89,15 @@ class FiltersList extends Component {
   setNewFilters() {
     const filters = Object.keys(this.state).reduce((acc, item) => {
       if (isObject(this.state[item])) {
+        let value = '';
+        if (variableProps.includes(item)) {
+          value = this.state[item].type;
+        } else {
+          value = this.state[item].id;
+        }
         return {
           ...acc,
-          [item]: this.state[item].id,
+          [item]: value,
         };
       }
       return acc;
@@ -118,7 +140,7 @@ class FiltersList extends Component {
       return (
         <div className="filters">
           <div className="filters__title" onClick={this.showFilters}>
-            <img src={menuIcon} />
+            <img src={menuIcon} alt="menu-icon" />
             <p>Filters</p>
           </div>
           <ul className="filters__list" ref={node => this.filtersNode = node}>
@@ -134,7 +156,7 @@ class FiltersList extends Component {
                     />
                     {
                       isObject(this.state[filter.type]) &&
-                        <img src={cancelIcon} className="filter__cancel" onClick={() => this.deselectOption(filter.type)} />
+                        <img src={cancelIcon} className="filter__cancel" onClick={() => this.deselectOption(filter.type)}  alt="cancel-filter" />
                     }
                   </li>
                 );
@@ -154,5 +176,8 @@ export default compose(
   graphql(getFuelTypesQuery, {name: 'fuelTypes'}),
   graphql(getEngineTypesQuery, {name: 'engineTypes'}),
   graphql(getGearboxesQuery, { name: 'gearboxes'}),
-  graphql(getColorsQuery, { name: 'colors'})
+  graphql(getColorsQuery, { name: 'colors'}),
+  graphql(getPricesQuery, { name: 'prices'}),
+  graphql(getKmQuery, { name: 'km'}),
+  graphql(getYearQuery, { name: 'year'})
 )(FiltersList);

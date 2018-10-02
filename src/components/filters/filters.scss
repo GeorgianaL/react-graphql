@@ -1,7 +1,7 @@
 @import '../../skins/index.scss';
 
 .filters {
-  padding: 20px;
+  padding: 0px 20px;
   display: flex;
   flex-direction: column;
 
@@ -116,5 +116,13 @@
     @include element('list') {
       display: none;
     }
+  }
+
+  .filter {
+    padding: 15px 10px;
+  }
+
+  .options {
+    max-width: calc(100% - 80px);
   }
 }

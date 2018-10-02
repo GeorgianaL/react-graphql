@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 
 import { getPropsName } from './queries';
-import { allProductProps, propsById, productDetails } from '../../lib/productProps';
+import { propsById, productDetails } from '../../lib/productProps';
 import { capitalize } from '../../lib/capitalize';
 
 class Product extends Component {
@@ -41,13 +41,13 @@ class Product extends Component {
               <div className="product__header--title">
                 {
                   productDetails.title.map((detail) => (
-                    <p>{this.getPropValue(detail)}</p>
+                    <p key={`${this.props.id}-${detail}`}>{this.getPropValue(detail)}</p>
                   ))
                 }
               </div>
               {
                 productDetails.price.map((detail) => (
-                  <div className="product__header--price"><p>{this.props[detail]} €</p></div>
+                  <div className="product__header--price" key={`${this.props.id}-${detail}`}><p>{this.props[detail]} €</p></div>
                 ))
               }
             </div>

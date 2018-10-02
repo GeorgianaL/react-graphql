@@ -3,7 +3,7 @@ import WithBox from '../withBox/withBoxHOC';
 
 import { isObject } from 'lodash';
 import { capitalize } from '../../lib/capitalize';
-
+import { variableProps } from '../../lib/productProps';
 
 class Filter extends Component {
   render() {
@@ -28,7 +28,7 @@ class Filter extends Component {
                     className="options__item"
                     onClick={() => this.props.onSelectOption(option)}
                   >
-                    {option.type}
+                    {variableProps.includes(name) ? 'up to' : ''} {option.type}
                   </span>
                 ))
               }
