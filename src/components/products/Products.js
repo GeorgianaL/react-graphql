@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 
+import { isEmpty, sortBy } from 'lodash';
 import { getProductsQuery } from './queries';
 
 import Product from './Product.js';
@@ -8,6 +9,20 @@ import { variableProps } from '../../lib/productProps';
 import './product.scss';
 
 class Products extends Component {
+  sortProducts(products) {
+    if (isEmpty(this.props.sorts)) {
+      return products;
+    } else {
+      const sortProp = Object.keys(this.props.sorts)[0];
+      const sortOrder = this.props.sorts[sortProp];
+
+      if (sortOrder === "asc") {
+        return sortBy(products, sortProp);
+      }
+      return sortBy(products, sortProp).reverse();
+    }
+  }
+
   filterProducts(products) {
     const filters = this.props.filters;
 
@@ -28,8 +43,7 @@ class Products extends Component {
       });
       return ok;
     });
-    console.log(availableProducts);
-    return availableProducts;
+    return this.sortProducts(availableProducts);
   }
 
   displayProducts() {

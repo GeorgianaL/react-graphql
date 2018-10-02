@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { graphql, compose } from 'react-apollo';
 
 import menuIcon from '../../../public/menu.png';
+import sortIcon from '../../../public/order.png';
 import cancelIcon from '../../../public/cancel.svg';
 
 import Filter from './Filter';
+import Sort from './Sort';
 import {
   getFiltersQuery,
   getBrandsQuery,
@@ -22,6 +24,7 @@ import { isObject } from 'lodash';
 
 import { allProductProps, variableProps } from '../../lib/productProps';
 import { getThresholds, mapIDs } from '../../lib/utils';
+
 import './filters.scss';
 
 class FiltersList extends Component {
@@ -29,9 +32,11 @@ class FiltersList extends Component {
     super(...args);
 
     this.filtersNode = null;
+    this.sortsNode = null;
     this.selectOption = this.selectOption.bind(this);
     this.deselectOption = this.deselectOption.bind(this);
     this.showFilters = this.showFilters.bind(this);
+    this.showSorts = this.showSorts.bind(this);
   }
 
   componentDidMount() {
@@ -132,6 +137,14 @@ class FiltersList extends Component {
     }
   }
 
+  showSorts() {
+    if (this.sortsNode.style.display === 'none' || this.sortsNode.style.display === '') {
+      this.sortsNode.style.display = 'block';
+    } else {
+      this.sortsNode.style.display = 'none';
+    }
+  }
+
   render() {
     const { filters } = this.props;
     if (filters.loading) {
@@ -142,6 +155,10 @@ class FiltersList extends Component {
           <div className="filters__title" onClick={this.showFilters}>
             <img src={menuIcon} alt="menu-icon" />
             <p>Filters</p>
+          </div>
+          <div className="filters__title" onClick={this.showSorts}>
+            <img src={sortIcon} alt="sort-icon" />
+            <p>Sort</p>
           </div>
           <ul className="filters__list" ref={node => this.filtersNode = node}>
             {
@@ -161,6 +178,15 @@ class FiltersList extends Component {
                   </li>
                 );
               })
+            }
+          </ul>
+          <ul  className="filters__list" ref={node => this.sortsNode = node}>
+            {
+              variableProps.map((sortType) => (
+                <li key={`${sortType}-sort`}>
+                  <Sort by={sortType} sortBy={this.props.updateSort} />
+                </li>
+              ))
             }
           </ul>
         </div>
